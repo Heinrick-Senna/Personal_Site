@@ -4,13 +4,16 @@ $w: white !default
 $backgroundBlock: black !default
 
 // Menu
-#MainMenu 
-	position     : absolute
-	top          : 12vw
+#MainMenu
+	position: absolute
+	height: 100vh
+	top: 0
 	left: 2vw
-	z-index      : 3
-	transition   : opacity 250ms ease-in
-	ul 
+	display: flex
+	align-items: center
+	z-index: 3
+	transition: opacity 250ms ease-in
+	ul
 		list-style : none
 		user-select: none
 		outline    : none
@@ -20,9 +23,10 @@ $backgroundBlock: black !default
 			align-content: center
 			align-items: center
 			cursor : pointer
-			span 
+			span
+				text-shadow: .1rem .1rem .1rem $menuColor
 				display       : none
-				font          : bold 1.5vw Font3
+				font          : bolder 1.5rem Font1
 				margin-left: .5vw
 			
 			svg 
@@ -85,9 +89,8 @@ $backgroundBlock: black !default
 		.MenuSelected 
 			svg 
 				width: 2rem!important
-			
-		 	&:hover svg 
-		 		width: 2rem!important
+			&:hover svg
+				width: 2rem!important
 		 	
 		
 		li 

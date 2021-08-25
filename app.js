@@ -3,10 +3,20 @@ const app = require('./config/express')();
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const ip = require('ip');
+const path = require('path');
+const livereload = require("livereload"), liveReloadServer = livereload.createServer();
+const connectLivereload = require("connect-livereload")
 require("dotenv-safe").config();
 
 
+liveReloadServer.watch(path.join(__dirname, '/public/CSS'));
+liveReloadServer.watch(path.join(__dirname, '/views'));
 
+liveReloadServer.server.once("connection", () => {
+    setTimeout(() => {
+        liveReloadServer.refresh("/");
+    }, 10);
+});
 
 // Config Sessão
 	app.use(session({
